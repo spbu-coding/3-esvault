@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
-const float eps_float = 1e-6f;
-const double eps_double = 1e-6;
+#define eps_float 1e-6f
+#define eps_double 1e-6
 
 typedef struct {
     float x;
@@ -26,10 +26,9 @@ int main() {
     float_point_t float_result = resolve_float_system(0.0f);
     float_point_t float_result_delta = resolve_float_system(delta_float);
     float float_res_deviation = calculate_float_dist(float_result, float_result_delta);
-    printf("======Results for floats=======\n");
+    printf("==========Results for floats===========\n");
     while (float_res_deviation >= eps_float) {
-        printf("Delta: %.8f, X1: %.8f, X2: %.8f\n", delta_float, float_result_delta.x, float_result_delta.y);
-        printf("floats deviation: %f \n", float_res_deviation);
+        printf("Delta: %.8f, deviation: %.8f\n", delta_float, float_res_deviation);
         delta_float /= 2.0f;
         float_result_delta = resolve_float_system(delta_float);
         float_res_deviation = calculate_float_dist(float_result, float_result_delta);
@@ -38,10 +37,9 @@ int main() {
     double_point_t double_result = resolve_double_system(0.0);
     double_point_t double_result_delta = resolve_double_system(delta_double);
     double double_res_deviation = calculate_double_dist(double_result, double_result_delta);
-    printf("======Results for doubles=======\n");
+    printf("==========Results for doubles===========\n");
     while (double_res_deviation >= eps_double) {
-        printf("Delta: %.11f, X1: %.11f, X2: %.11f\n", delta_double, double_result_delta.x, double_result_delta.y);
-        printf("doubles deviation: %f \n", double_res_deviation);
+        printf("Delta: %.11f, deviation: %f\n", delta_double, double_res_deviation);
         delta_double /= 2.0;
         double_result_delta = resolve_double_system(delta_double);
         double_res_deviation = calculate_double_dist(double_result, double_result_delta);
@@ -51,14 +49,14 @@ int main() {
 
 float_point_t resolve_float_system(float delta) {
     float_point_t result;
-    result.y = (2.00001f + delta - 2.0f) / 0.0001f;
+    result.y = ((2.00001f + delta) - 2.0f) / 0.0001f;
     result.x = 2.0f - result.y;
     return result;
 }
 
 double_point_t resolve_double_system(double delta) {
     double_point_t result;
-    result.y = (2.00001 + delta - 2.0) / 0.0001;
+    result.y = ((2.00001 + delta) - 2.0) / 0.0001;
     result.x = 2.0 - result.y;
     return result;
 }
