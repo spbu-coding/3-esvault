@@ -1,0 +1,29 @@
+==========Results for floats===========
+Delta: 0.00001000, deviation: 0.14161341
+Delta: 0.00000500, deviation: 0.07080670
+Delta: 0.00000250, deviation: 0.03371748
+Delta: 0.00000125, deviation: 0.01685874
+Delta: 0.00000062, deviation: 0.01011524
+Delta: 0.00000031, deviation: 0.00337175
+Delta: 0.00000016, deviation: 0.00337175
+==========Results for doubles===========
+Delta: 0.00001000000, deviation: 0.141421
+Delta: 0.00000500000, deviation: 0.070711
+Delta: 0.00000250000, deviation: 0.035355
+Delta: 0.00000125000, deviation: 0.017678
+Delta: 0.00000062500, deviation: 0.008839
+Delta: 0.00000031250, deviation: 0.004419
+Delta: 0.00000015625, deviation: 0.002210
+Delta: 0.00000007813, deviation: 0.001105
+Delta: 0.00000003906, deviation: 0.000552
+Delta: 0.00000001953, deviation: 0.000276
+Delta: 0.00000000977, deviation: 0.000138
+Delta: 0.00000000488, deviation: 0.000069
+Delta: 0.00000000244, deviation: 0.000035
+Delta: 0.00000000122, deviation: 0.000017
+Delta: 0.00000000061, deviation: 0.000009
+Delta: 0.00000000031, deviation: 0.000004
+Delta: 0.00000000015, deviation: 0.000002
+Delta: 0.00000000008, deviation: 0.000001
+
+Вывод: в эксперименте с типом float мы получили бесконечный цикл, который образовался из-за его малой точности. С типом double такого не произошло. Данный пример хорошо иллюстрирует разницу между float и double.  
